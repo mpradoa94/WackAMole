@@ -57,13 +57,20 @@ public class Game : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(levelStarted)
+        if (levelStarted)
+        {
             time += Time.deltaTime;
-        scoreTxt.text = score.ToString();
-        if (failHits > 0)
-            negativeScore.text = "-" + failHits;
+            scoreTxt.text = "Correctas: " + score;
+            if (failHits > 0)
+                negativeScore.text = "Errores: " + failHits;
+            else
+                negativeScore.text = "Errores: 0";
+        }
         else
-            negativeScore.text = "0";
+        {
+            scoreTxt.text = "";
+            negativeScore.text = "";
+        }
     }
 
     private IEnumerator MainGame()
@@ -129,6 +136,10 @@ public class Game : MonoBehaviour {
                         DataControl.control.moles[currentLevel]++;
                     }
                 }
+                else
+                {
+                    Spawn(randAnimal, new Vector3(0, 0, 0));
+                }
             }
 
             //Wait some time before spawning new mole, rabbit or bird
@@ -153,6 +164,7 @@ public class Game : MonoBehaviour {
     void Spawn(GameObject animal, Vector3 pos)
     {
         Instantiate(animal, pos, Quaternion.identity);
+
     }
 
     bool PosIsEmpty(Transform pos)

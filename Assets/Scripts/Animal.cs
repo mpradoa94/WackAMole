@@ -7,6 +7,10 @@ public class Animal : MonoBehaviour {
     public float lifeTime;
     private bool whacked;
 
+    //sound
+    public AudioClip clip;
+    public AudioSource audio;
+
     //Time to hit
     private float time;
 
@@ -74,6 +78,8 @@ public class Animal : MonoBehaviour {
 
     private IEnumerator DeathAnim()
     {
+        if(audio != null)
+            audio.PlayOneShot(clip, 0.7F);
         anim.SetBool("Wacked", true);
         yield return new WaitForSeconds((float)0.2);
         whacked = true;
