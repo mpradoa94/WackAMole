@@ -51,7 +51,7 @@ public class DataControl : MonoBehaviour {
         string path2 = "./Data/playerInfo.json";
 
         FileStream file = File.Create(path1);
-        FileStream file2 = new FileStream(path2, FileMode.Append, FileAccess.Write);
+        FileStream file2 = new FileStream(path2, FileMode.OpenOrCreate, FileAccess.ReadWrite);
 
         PlayerData data = new PlayerData();
         data.playerName = playerName;
@@ -78,10 +78,21 @@ public class DataControl : MonoBehaviour {
         data.reactionIncorrect = averageTimeIncorrect/timeIncorrect.Count;
 
         string json = JsonUtility.ToJson(data);
+
+        file2.Seek(-1, SeekOrigin.End);
+        if (file2.ReadByte() == ']')
+        {
+            print("Hello");
+            file2.SetLength(file2.Length - 1);
+        }
+
         file.Dispose();
         file2.Dispose();
+
         File.WriteAllText(path1, json);
+        File.AppendAllText(path2, ",");
         File.AppendAllText(path2, json);
+        File.AppendAllText(path2, "]");
 
         file.Close();
         file2.Close();

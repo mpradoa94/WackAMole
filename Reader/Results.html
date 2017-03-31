@@ -3,12 +3,102 @@
 <head>
 <title>Page Title</title>
 <link rel="stylesheet" type="text/css" href="">
-<script src="ResultsReader.js"></script>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+<input type="file" id="files" name="files[]" multiple />
+<output id="list"></output>
+<div id="table_div">
+	<table id="table">
+		<tr>
+		    <th>Nombre</th>
+		    <th>Edad</th>
+		    <th>Total Correctas</th>
+		    <th>Total Incorrectas</th>
+		    <th>Correctas por niveles</th>
+		    <th>Incorrectas por niveles</th>
+		    <th>Topos por nivel</th>
+		    <th>Conejos por nivel</th>
+		    <th>Número total de clicks</th>
+		    <th>Tiempo de reacción promedio</th>
+		    <th>Tiempo de reacción promedio en incorrectas</th>
+		</tr>
+		  
+	</table>
+</div>
+
+<script>
+  function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // Loop through the FileList.
+    for (var i = 0, f; f = files[i]; i++) {
+      // Only process json files.
+      if (f.type.match('.json')) {
+        continue;
+      }
+
+      var reader = new FileReader();
+
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+        	//File content
+        	var txt = e.target.result;
+        	var obj = JSON.parse(txt);
+        	for(var i = 0; i < obj.length; i++){
+			    console.log(obj[i]);
+
+			    //Format the json info
+			    if(obj[i].reactionCorrect == Infinity)
+			    	obj[i].reactionCorrect = 0;
+			    if(obj[i].reactionIncorrect == Infinity)
+			    	obj[i].reactionIncorrect = 0;
+
+			    //Put the info in the table
+			    document.getElementById('table').innerHTML += 
+			    "<tr>"+
+			    	"<td>" + obj[i].playerName + "</td>" +
+			    	"<td>" + obj[i].playerAge + "</td>" +
+			    	"<td>" + obj[i].score + "</td>" +
+			    	"<td>" + obj[i].failHits + "</td>" +
+			    	"<td>" + obj[i].levelScore.toString() + "</td>" +
+			    	"<td>" + obj[i].levelFails.toString() + "</td>" +
+			    	"<td>" + obj[i].moles.toString() + "</td>" +
+			    	"<td>" + obj[i].rabbits.toString() + "</td>" +
+			    	"<td>" + obj[i].numClicks + "</td>" +
+			    	"<td>" + obj[i].reactionCorrect + "</td>" +
+			    	"<td>" + obj[i].reactionIncorrect + "</td>" 
+			    "</tr>";
+			}
+        };
+      })(f);
+
+      // Read in the image file as a data URL.
+      //reader.readAsDataURL(f);
+      reader.readAsText(f);
+    }
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>
 
 </body>
 </html>
