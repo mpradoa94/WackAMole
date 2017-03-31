@@ -1,0 +1,57 @@
+Initialize engine version: 5.4.0f3 (a6d8d714de6f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 755M (ID=0xfcd)
+    Vendor:   NVIDIA
+    VRAM:     2019 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\MPA\Documents\TEC\10semestre\Tesina\juegos\wakamole2\version2_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\MPA\Documents\TEC\10semestre\Tesina\juegos\wakamole2\version2_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\MPA\Documents\TEC\10semestre\Tesina\juegos\wakamole2\version2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\MPA\Documents\TEC\10semestre\Tesina\juegos\wakamole2\version2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\MPA\Documents\TEC\10semestre\Tesina\juegos\wakamole2\version2_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\MPA\Documents\TEC\10semestre\Tesina\juegos\wakamole2\version2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\MPA\Documents\TEC\10semestre\Tesina\juegos\wakamole2\version2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\MPA\Documents\TEC\10semestre\Tesina\juegos\wakamole2\version2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.042 seconds
+Platform assembly: C:\Users\MPA\Documents\TEC\10semestre\Tesina\juegos\wakamole2\version2_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\MPA\Documents\TEC\10semestre\Tesina\juegos\wakamole2\version2_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.281247 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 17.547874 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 276.
+Total: 0.392157 ms (FindLiveObjects: 0.025231 ms CreateObjectMapping: 0.019244 ms MarkObjects: 0.341694 ms  DeleteObjects: 0.005559 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.852739 ms
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 336.
+Total: 0.274553 ms (FindLiveObjects: 0.017961 ms CreateObjectMapping: 0.017106 ms MarkObjects: 0.181752 ms  DeleteObjects: 0.057305 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.591443 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 324.
+Total: 0.444331 ms (FindLiveObjects: 0.023093 ms CreateObjectMapping: 0.020099 ms MarkObjects: 0.296363 ms  DeleteObjects: 0.104347 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.516456 ms
+
+Unloading 75 unused Assets to reduce memory usage. Loaded Objects now: 241.
+Total: 1.486948 ms (FindLiveObjects: 0.088524 ms CreateObjectMapping: 0.053028 ms MarkObjects: 0.551244 ms  DeleteObjects: 0.792440 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.218382 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 230.
+Total: 0.708192 ms (FindLiveObjects: 0.074839 ms CreateObjectMapping: 0.036778 ms MarkObjects: 0.584173 ms  DeleteObjects: 0.010691 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 339c -> priority: 1 
+  Thread -> id: 31c4 -> priority: 1 
