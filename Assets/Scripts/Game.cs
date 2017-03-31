@@ -81,7 +81,7 @@ public class Game : MonoBehaviour {
 
         if(currentLevel >= levels.Length)
         {
-            levelTxt.text = "Guardando puntuación...";
+            levelTxt.text = "Guardando puntuacion...";
             DataControl.control.Save();
             SceneManager.LoadScene("endScene");
         }
@@ -105,6 +105,7 @@ public class Game : MonoBehaviour {
         GameObject randHole;
         GameObject randAnimal;
         int randAux;
+        float auxTime = maxTime;
 
         levelTxt.text = "";
         levelStarted = true;
@@ -122,10 +123,12 @@ public class Game : MonoBehaviour {
                 if (randAnimal.tag == "Bird")
                 {
                     Spawn(randAnimal, new Vector3(17, 0, 0));
+                    auxTime = minTime;
                 }
                 else if (randAnimal.tag == "Animal")
                 {
                     Spawn(randAnimal, new Vector3(randHole.transform.position.x, (float)-2.4, 0));
+                    auxTime = maxTime;
                     string aux = randAnimal.GetComponent<Animal>().type;
                     if (aux == "Rabbit")
                     {
@@ -138,12 +141,13 @@ public class Game : MonoBehaviour {
                 }
                 else
                 {
+                    auxTime = minTime;
                     Spawn(randAnimal, new Vector3(0, 0, 0));
                 }
             }
 
             //Wait some time before spawning new mole, rabbit or bird
-            yield return new WaitForSeconds(Random.Range(minTime, maxTime));
+            yield return new WaitForSeconds(Random.Range(minTime, auxTime));
         }
         
         yield return null;

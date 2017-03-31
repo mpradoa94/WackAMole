@@ -3,8 +3,13 @@ using System.Collections;
 
 public class InputText : MonoBehaviour {
 
-	public void TextChanged(string newText)
+	public void TextChangedName(string newText)
     {
         DataControl.control.playerName = newText;
+    }
+
+    public void TextChangedAge(string newText)
+    {
+        DataControl.control.playerAge = newText;
     }
 }

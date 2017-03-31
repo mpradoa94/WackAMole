@@ -18,6 +18,7 @@ public class DataControl : MonoBehaviour {
     public List<float> timeIncorrect;
     public int numClicks;
     public string playerName;
+    public string playerAge;
 
     public Game game = null;
 
@@ -47,13 +48,16 @@ public class DataControl : MonoBehaviour {
         float averageTimeCorrect = 0;
         float averageTimeIncorrect = 0;
         string path1 = "./currentPlayerInfo.json";
-        string path2 = "./Data/playerInfo" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".json";
+        string path2 = "./Data/playerInfo.json";
 
         FileStream file = File.Create(path1);
-        FileStream file2 = File.Create(path2);
+        FileStream file2 = new FileStream(path2, FileMode.Append, FileAccess.Write);
 
         PlayerData data = new PlayerData();
         data.playerName = playerName;
+        data.playerAge = playerAge;
+        data.dateTime = DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss");
+
         Array.ForEach(levelScore, delegate (int i) { data.score += i; });
         Array.ForEach(levelFails, delegate (int i) { data.failHits += i; });
         data.levelScore = levelScore;
@@ -77,7 +81,7 @@ public class DataControl : MonoBehaviour {
         file.Dispose();
         file2.Dispose();
         File.WriteAllText(path1, json);
-        File.WriteAllText(path2, json);
+        File.AppendAllText(path2, json);
 
         file.Close();
         file2.Close();
@@ -88,6 +92,8 @@ public class DataControl : MonoBehaviour {
 class PlayerData
 {
     public string playerName;
+    public string playerAge;
+    public string dateTime;
     public int score;
     public int failHits;
     public int[] levelScore;
@@ -96,5 +102,5 @@ class PlayerData
     public int[] rabbits;
     public int numClicks;    
     public float reactionCorrect;
-    public float reactionIncorrect; 
+    public float reactionIncorrect;
 }

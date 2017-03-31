@@ -81,7 +81,7 @@ public class Animal : MonoBehaviour {
         if(audio != null)
             audio.PlayOneShot(clip, 0.7F);
         anim.SetBool("Wacked", true);
-        yield return new WaitForSeconds((float)0.2);
+        yield return new WaitForSeconds((float)0.3);
         whacked = true;
     }
 }
